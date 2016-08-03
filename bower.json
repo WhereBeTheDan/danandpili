@@ -21,6 +21,11 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap-sass": "bootstrap-sass-official#~3.3.6"
+    "normalize-css": "normalize.css#^4.2.0",
+    "jquery": "1.x",
+    "foundation": "^5.5.3"
+  },
+  "resolutions": {
+    "jquery": "1.x"
   }
 }

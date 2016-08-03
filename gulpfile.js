@@ -36,42 +36,53 @@
 //
 // -------------------------------------
 
-var gulp 		= require( 'gulp' );
-var sass 		= require( 'gulp-sass' );
-var prefixer	= require( 'gulp-autoprefixer' );	
-var browserSync = require( 'browser-sync' ).create();
-var uglify 		= require( 'gulp-uglify' );
-var cssnano 	= require( 'gulp-cssnano' );
-var imagemin 	= require( 'gulp-imagemin' );
-var cache 		= require( 'gulp-cache' );
-var runSeq		= require( 'run-sequence' );
-var gutil		= require( 'gulp-util' );
-var concat 		= require( 'gulp-concat' );
-
+var argv         	= require( 'minimist' )(process.argv.slice(2));
+var gulp 			= require( 'gulp' );
+var gulpIf 			= require( 'gulp-if' );
+var sass 			= require( 'gulp-sass' );
+var prefixer		= require( 'gulp-autoprefixer' );	
+var browserSync 	= require( 'browser-sync' ).create();
+var uglify 			= require( 'gulp-uglify' );
+var lazypipe     	= require( 'lazypipe' );
+var plumber      	= require( 'gulp-plumber' );
+var cssnano 		= require( 'gulp-cssnano' );
+var imagemin 		= require( 'gulp-imagemin' );
+var cache 			= require( 'gulp-cache' );
+var runSeq			= require( 'run-sequence' );
+var flatten     	= require( 'gulp-flatten' );
+var gutil			= require( 'gulp-util' );
+var concat 			= require( 'gulp-concat' );
+var merge        	= require( 'merge-stream' );
+var wiredep 		= require( 'wiredep' );
+var sourcemaps   	= require( 'gulp-sourcemaps' );
+var runSequence 	= require( 'run-sequence' );
+var changed      	= require( 'gulp-changed' );
+var manifest 		= require( 'asset-builder' )( './assets/manifest.json' );
 
 // -------------------------------------
 //   Config
 // -------------------------------------
 
-var config = {
-	assetPath: 		'assets',
-	sassSrcPath: 	'assets/scss/**/*.scss',
-	cssDestPath: 	'jekyll/assets/css',
-	jsSrcLibPath:  	'assets/js/lib/**/*.js',
-	jsDestPath: 	'jekyll/assets/js',
-	bowerDir: 		'bower_components',
-	jekyllPath: 	'jekyll',
+var path = manifest.paths;
+var config = manifest.config || {};
+var globs = manifest.globs;
+var project = manifest.getProjectGlobs();
+
+var enabled = {
+	// Disable source maps when `--production`
+	maps: !argv.production,
+	// Fail styles task on error when `--production`
+	failStyleTask: argv.production,
+	// Fail due to JSHint warnings only when `--production`
+	failJSHint: argv.production,
+	// Strip debug statments from javascript when `--production`
+	stripJSDebug: argv.production
 };
 
-
-// -------------------------------------
-//   Task: Default
-// -------------------------------------
-
-gulp.task( 'default', function (callback) {
-  	runSeq( ['sass', 'scripts', 'jekyll', 'browserSync', 'watch'], callback );
-});
-
+var writeToManifest = function(directory) {
+	 return lazypipe()
+	    .pipe(gulp.dest, path.dist + directory)();
+};
 
 // -------------------------------------
 //   Task: BrowserSync
@@ -113,15 +124,46 @@ gulp.task( 'jekyll', function (callback) {
 //   Task: Sass
 // -------------------------------------
 
-gulp.task( 'sass', function() {
-	return gulp.src( config.sassSrcPath )
-		.pipe( sass({ 
-			outputStyle: 'compressed', 
-			includePaths: [config.sassSrcPath, config.bowerDir + '/bootstrap-sass/assets/stylesheets'] 
-		}))
-		.pipe( prefixer({ browsers: ['last 2 versions'] }))
-		.pipe( gulp.dest( config.cssDestPath ) )
-		.pipe( browserSync.reload({ stream: true }) );
+var cssTasks = function(filename) {
+	return lazypipe()
+		.pipe(function() {
+	      	return gulpIf(!enabled.failStyleTask, plumber());
+	    })
+		.pipe(function() {
+	      	return gulpIf(enabled.maps, sourcemaps.init());
+	    })
+		.pipe(function() {
+			return gulpIf('*.scss', sass({
+				outputStyle: 'compressed', 
+				precision: 10,
+		        includePaths: ['.'],
+		        errLogToConsole: !enabled.failStyleTask
+			}));
+		})
+		.pipe( concat, filename )
+		.pipe( prefixer, { browsers: ['last 2 versions'] })
+		.pipe( cssnano, { safe: true })
+		.pipe(function() {
+	      	return gulpIf(enabled.maps, sourcemaps.write('.', {
+	        	sourceRoot: 'jekyll/assets/css/'
+	      	}));
+	    })();
+};
+
+gulp.task('styles', ['wiredep'], function() {
+  	var merged = merge();
+  	manifest.forEachDependency('css', function(dep) {
+	    var cssTasksInstance = cssTasks(dep.name);
+	    if (!enabled.failStyleTask) {
+	      	cssTasksInstance.on('error', function(err) {
+		        console.error(err.message);
+		        this.emit('end');
+	      	});
+	    }
+    	merged.add(gulp.src(dep.globs, {base: 'scss'})
+      		.pipe(cssTasksInstance));
+  	});
+  	return merged.pipe(writeToManifest('styles'));;
 });
 
 
@@ -129,25 +171,71 @@ gulp.task( 'sass', function() {
 //   Task: Scripts
 // -------------------------------------
 
+var jsTasks = function(filename) {
+	return lazypipe()
+	  	.pipe(function() {
+	      	return gulpIf(enabled.maps, sourcemaps.init());
+	    })
+	    .pipe(concat, filename)
+	    .pipe(uglify, {
+	      	compress: {
+	        	'drop_debugger': enabled.stripJSDebug
+	      	}
+	    })
+	    .pipe(function() {
+	      	return gulpIf(enabled.maps, sourcemaps.write('.', {
+	        	sourceRoot: 'assets/js/'
+	      	}));
+	    })();
+};
+
 gulp.task('scripts', function() {
-  	return gulp.src( [config.jsSrcLibPath, config.assetPath + '/js/*.js'] )
-    	.pipe( concat( 'app.min.js', {newLine: '\r\n'} ) )
-    	.pipe( uglify({ preserveComments: 'license' }) )
-    	.pipe( gulp.dest( config.jsDestPath ) )
-    	.pipe( browserSync.reload({ stream: true }) );
+	var merged = merge();
+	manifest.forEachDependency('js', function(dep) {
+	    merged.add(
+	      	gulp.src(dep.globs, {base: 'js'})
+	        	.pipe(jsTasks(dep.name))
+	    );
+	});
+	return merged.pipe(writeToManifest('scripts'));;
 });
 
+// -------------------------------------
+//   Task: Fonts
+// -------------------------------------
+
+gulp.task('fonts', function() {
+  	return gulp.src(globs.fonts)
+    	.pipe(flatten())
+    	.pipe(gulp.dest(path.dist + 'fonts'))
+    	.pipe(browserSync.stream());
+});
 
 // -------------------------------------
 //   Task: Images
 // -------------------------------------
 
 gulp.task( 'images', function() {
-	return gulp.src( 'assets/images/**/*.+(png|jpg|gif|svg' )
+	return gulp.src(globs.images)
 		.pipe( cache( imagemin({
 			interlaced: true
 		})))
-		.pipe( gulp.dest( config.jekyllPath + '/assets/images' ) );
+		.pipe(gulp.dest(path.dist + 'images' ) );
+});
+
+
+// -------------------------------------
+//   Task: Wiredep
+// -------------------------------------
+
+gulp.task('wiredep', function() {
+	var wiredep = require('wiredep').stream;
+	return gulp.src(project.css)
+	    .pipe(wiredep())
+	    .pipe(changed(path.source + 'scss', {
+	      hasChanged: changed.compareSha1Digest
+	    }))
+	    .pipe(gulp.dest(path.source + 'scss'));
 });
 
 
@@ -161,11 +249,38 @@ gulp.task( 'cache:clear', function (callback) {
 
 
 // -------------------------------------
+//   Task: Clean
+// -------------------------------------
+
+gulp.task( 'clean', require('del').bind(null, [path.dist]));
+
+// -------------------------------------
 //   Task: Watch
 // -------------------------------------
 
-gulp.task( 'watch', ['browserSync', 'sass', 'scripts'], function() {
-	gulp.watch( config.sassSrcPath, ['sass'] );
-	gulp.watch( config.jsSrcLibPath, ['scripts', browserSync.reload] );
+gulp.task( 'watch', ['build', 'jekyll', 'browserSync'], function() {
+	gulp.watch([path.source + 'scss/**/*'], ['styles']);
+  	gulp.watch([path.source + 'js/**/*'], ['scripts']);
+  	gulp.watch([path.source + 'fonts/**/*'], ['fonts']);
+  	gulp.watch([path.source + 'images/**/*'], ['images']);
+  	gulp.watch(['bower.json', 'assets/manifest.json'], ['build']);
+});
+
+
+// -------------------------------------
+//   Task: Build
+// -------------------------------------
+
+gulp.task( 'build', function(callback) {
+  	runSequence( 'styles', 'scripts', ['fonts', 'images'], callback );
+});
+
+
+// -------------------------------------
+//   Task: Default
+// -------------------------------------
+
+gulp.task( 'default', ['clean'], function() {
+  	gulp.start('build');
 });
 
