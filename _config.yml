@@ -4,7 +4,7 @@
 title: Dan + Pili
 email: dkoch@sagetopia.com
 description: Site description
-baseurl: ''
+baseurl: 'danandpili/'
 url: "http://wherebethedan.github.io" # the base hostname & protocol for your site
 twitter_username: wherebethedan
 github_username: wherebethedan
