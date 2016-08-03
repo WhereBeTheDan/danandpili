@@ -1,0 +1,26 @@
+{
+  "name": "danandpili",
+  "description": "Dan and Pili's wedding website",
+  "main": "index.js",
+  "authors": [
+    "Dan"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "dan",
+    "pili",
+    "wedding"
+  ],
+  "homepage": "danandpili.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "bootstrap-sass-official#~3.3.6"
+  }
+}

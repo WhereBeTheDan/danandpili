@@ -1,0 +1,24 @@
+# Jekyll configuration
+
+# Site settings
+title: Jekyll + Gulp
+email: dkoch@sagetopia.com
+description: Site description
+baseurl: ''
+url: "http://wherebethedan.github.io" # the base hostname & protocol for your site
+twitter_username: wherebethedan
+github_username:  wherebethedan
+
+# Build settings
+markdown: kramdown
+include: ['_pages']
+exclude: ['package.json', 'node_modules', 'gulpfile.js']
+
+# Posts
+permalink: /articles/:year/:month/:title/
+
+# Collections
+collections:
+  portfolios:
+    output: true
+    permalink: /portfolio/:path/
