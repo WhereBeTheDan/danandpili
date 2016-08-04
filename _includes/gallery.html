@@ -1,0 +1,18 @@
+<section id="couple-gallery">
+	<h2>Gallery</h2>
+	<div class="il-scattered-gallery">
+		{% for image in site.data.gallery %}
+			<a class="il-photo-{{ forloop.index | prepend: '00' | slice: -2, 2 }} {% if forloop.first %}il-highlight il-focus{% endif %}">
+				<img src="assets/images/gallery/{{ image }}" alt="">
+			</a>
+		{% endfor %}
+	</div>
+	<div class="couple-slideshow-wrap">
+		<div id="couple-slideshow"></div>
+		<ul class="couple-thumbs"></ul>
+	</div>
+	<a id="gallery-launcher" href="#">Click to view gallery</a>
+	<div class="couple-mobile-slider-wrap">
+		<div class="couple-mobile-slider"></div>
+	</div>
+</section>
