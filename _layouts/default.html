@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html>
-
+<html class="no-js">
     {% include head.html %}
 
     <body class="home">
-
         {% include header.html %}
 
-        {% include couple.html %}
+        <main class="clearfix">
+	        {% include couple.html %}
+	        {% include countdown.html %}
+	        {% include rsvp.html %}
+	    </main>
 
         {% include footer.html %}
-
     </body>
-
 </html>
