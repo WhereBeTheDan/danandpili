@@ -1,0 +1,8 @@
+<img class="lazy {{ include.class }}" 
+	 data-src="assets/images/nothing.gif" 
+	 data-lazy="[{{ include.src }}, (default)], 
+	 			[{{ include.src }}@2x, (retina)]" 
+	 height="{{ include.height }}" width="{{ include.width }}" alt="{{ include.alt }}" />
+<noscript>
+	<img src="{{ include.src }}@2x.jpg" height="{{ include.height }}" width="{{ include.width }}" alt="{{ include.alt }}" />
+</noscript>

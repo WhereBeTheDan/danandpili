@@ -1,8 +1,8 @@
-<section id="couple" class="row">
+<section id="couple" class="heroic-bg blend-overlay row" data-lazy="assets/images/couple.jpg">
 	<div class="columns large-12">
 		<div class="columns large-4 medium-4">
 			<span class="headshot groom">
-				<img src="{{ 'assets/images/dan.jpg' | prepend: site.baseurl }}" alt="groom headshot" width="233">
+				{% include lazy-image.html src="assets/images/dan.jpg" alt="groom headshot" width="233" %}
 			</span>
 			<h3>Dan</h3>
 			<p class="desc groom">
@@ -11,7 +11,9 @@
 					{% for network in site.data.social.groom %}
 						{% assign net = network[0] %}
 						{% assign tag = network[1] %}
-						<a title="{{ net | capitalize }}" href="https://{{ net }}.com/{{ tag }}" target="_blank"><i class="fa fa-{{ net }} fa-2x"></i></a>
+						<a title="{{ net | capitalize }}" href="https://{{ net }}.com/{{ tag }}" target="_blank">
+							<i class="fa fa-{{ net }} fa-2x"></i>
+						</a>
 					{% endfor %}
 		    	</span>
 			</p>
@@ -21,7 +23,7 @@
 		</div><!-- End .large-4 -->
 		<div class="columns large-4 medium-4">
 			<span class="headshot bride">
-				<img src="assets/images/pili.jpg" alt="bride headshot" width="233">
+				{% include lazy-image.html src="assets/images/pili.jpg" alt="bride headshot" width="233" %}
 			</span>
 			<h3>Pili</h3>
 			<p class="desc bride">

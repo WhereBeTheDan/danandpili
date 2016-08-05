@@ -1,10 +1,10 @@
-<section id="schedule">		
+<section id="schedule" class="heroic-bg blend-overlay" data-lazy="assets/images/table_setting.jpg">		
 	<div class="schedule-content-wrap">
 		<h2>Schedule</h2>
 		<div class="row">
 			<div class="columns large-6">
 				<strong>Dan &amp; Pili Celebration</strong>
-				<img src="{{ assets/images/party-img.png | prefix: baseurl }}" alt="party-image">
+				{% include lazy-image.html src="assets/images/workhouse.jpg" alt="workhouse" width=187 %}
 				<div class="event-details">
 					<p>September 30<br>
 					7:00pm - 11:00pm<br>
@@ -16,7 +16,7 @@
 			</div><!-- End .columns.large-6 -->
 			<div class="columns large-6">
 				<strong>Grandma Flo Celebration</strong>
-				<img src="{{ assets/images/glo-img.png | prefix: baseurl }}" alt="party-image">
+				{% include lazy-image.html src="assets/images/greenspring.jpg" alt="greenspring" width=187 %}
 				<div class="event-details">
 					<p>October 1<br>
 					12:00pm - 3:00pm<br>

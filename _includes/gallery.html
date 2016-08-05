@@ -2,16 +2,21 @@
 	<h2>Gallery</h2>
 	<div class="il-scattered-gallery">
 		{% for image in site.data.gallery %}
+			{% assign src = image | prepend: 'assets/images/gallery/' | prepend: site.base_url %}
+			{% assign alt = gallery-{{ forloop.index }} %}
 			<a class="il-photo-{{ forloop.index | prepend: '00' | slice: -2, 2 }} {% if forloop.first %}il-highlight il-focus{% endif %}">
-				<img src="assets/images/gallery/{{ image }}" alt="">
+				{% include lazy-image.html class="il-photo" src=src alt=alt %}
 			</a>
 		{% endfor %}
 	</div>
 	<div class="couple-slideshow-wrap">
-		<div id="couple-slideshow"></div>
+		<div id="couple-slideshow">
+			{% for image in site.data.gallery %}
+				<li class="slideshow-photo" data-lazy="{{ image | prepend: 'assets/images/gallery/' | prepend: site.base_url }}"></li>
+			{% endfor %}
+		</div>
 		<ul class="couple-thumbs"></ul>
 	</div>
-	<a id="gallery-launcher" href="#">Click to view gallery</a>
 	<div class="couple-mobile-slider-wrap">
 		<div class="couple-mobile-slider"></div>
 	</div>
