@@ -78,8 +78,8 @@ $(window).load(function() {
 	        },
 	        elements: nodes,
 	        appear: function doReveal(el) {
-	          	var bg = 'url(' + el.getAttribute('data-lazy').split('.') + (updateViewportDimensions().width < 768 ? '_m' : '') + ')';
-	          	bg = 'url(' + bg[0] + (updateViewportDimensions().width < 768 ? '_m' : '') + bg[1] + ')';
+	          	var bg = el.getAttribute('data-lazy');
+	          	bg = 'url(' + bg.substring(0, bg.length - 4) + (updateViewportDimensions().width < 768 ? '_m' : '') + bg.substring(bg.length - 4) + ')';
 	          	el.style.backgroundImage = bg;
 	          	el.removeAttribute('data-lazy');
 	        },
