@@ -55,7 +55,7 @@ $(window).load(function() {
 	        elements: nodes,
 	        appear: function doReveal(el) {
 		        var bg = el.getAttribute('data-lazy');
-		        el.style.backgroundImage = 'url(' + bg + (updateViewportDimensions().width < 768 ? '_m' : '') + ')';
+		        el.style.backgroundImage = 'url(' + bg + ')';
 		        el.removeAttribute('data-lazy');
 	        },
 	        bounds: 400
@@ -78,7 +78,7 @@ $(window).load(function() {
 	        },
 	        elements: nodes,
 	        appear: function doReveal(el) {
-	          	var bg = 'url(' + el.getAttribute('data-lazy') + ')';
+	          	var bg = 'url(' + el.getAttribute('data-lazy') + (updateViewportDimensions().width < 768 ? '_m' : '') + ')';
 	          	el.style.backgroundImage = bg;
 	          	el.removeAttribute('data-lazy');
 	        },
