@@ -1,34 +1,46 @@
 <!DOCTYPE html>
-<html>
-
+<html class="no-js">
     <head>
   	<meta charset="utf-8">
   	<meta http-equiv="X-UA-Compatible" content="IE=edge">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  	<title>Home</title>
+  	<title>Dan + Pili</title>
   	<meta name="description" content="Site description">
 
   	<link href='https://fonts.googleapis.com/css?family=Prata|Raleway:400,300,500|Lato:400,300,700' rel='stylesheet' type='text/css'>
-  	<link rel="stylesheet" href="/assets/styles/main.css">
+  	<link rel="stylesheet" href="assets/styles/main.css">
 
-  	<link rel="canonical" href="http://wherebethedan.github.io/">
-  	<link rel="alternate" type="application/rss+xml" title="Dan + Pili" href="http://wherebethedan.github.io/feed.xml">
+  	<link rel="canonical" href="http://www.danandpili.com/">
+  	<link rel="alternate" type="application/rss+xml" title="Dan + Pili" href="http://www.danandpili.com/feed.xml">
+
+  	<script type="text/javascript" src="assets/scripts/modernizr.js" ></script>
 </head>
 
 
     <body class="home">
+        <aside class="browser-warning" style="display:none">
+    <h1>You are using a Microsoft browser. That is bad and you should feel bad. Get a <a href="https://www.google.com/chrome/" target="_blank">better one</a>, you Luddite.</h1>
+</aside>
+<noscript>
+    <aside class="javascript-warning">
+        <h1>You have javascript disabled. That is bad and you should feel bad. Turn on javascript, you Luddite.</h1>
+    </aside>
+</noscript>
 
-        <header class="default">
+<nav class="mobile-nav-menu">
+    <a class="mobile-logo" href="index.html">Dan + Pili</a>
+    <a class="mobile-menu-btn" href="#"><span></span></a>
+    <div class="mobile-menu-container"></div>
+</nav>
+
+<header class="default">
     <nav>
         <ul>
             <li><a title="The Couple" href="#couple" class="active">The Couple</a></li>
-            <li><a title="Bridesmaids" href="#bridesmaid-gallery" class="">Bridesmaids</a></li>
-            <li><a title="Groomsmen" href="#groomsmen-gallery" class="">Groomsmen</a></li>
             <li><a title="Gallery" href="#couple-gallery">Gallery</a></li>
-            <li><a title="Recent Posts" href="#recent-posts">Recent Posts</a></li>
-            <li><a title="RSVP &amp; Schedule" href="#rsvp">RSVP &amp; Schedule</a></li>
-            <li><a title="Blog" href="blog.html">Blog</a></li>
+            <li><a title="Schedule" href="#schedule">Schedule</a></li>
+            <li><a title="RSVP" href="#rsvp">RSVP</a></li>
             <li><a title="Contact" href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -36,19 +48,43 @@
     <span class="ceremony-date">September 30<sup>th</sup>, 2016</span>
 </header>
 
-        <section id="couple" class="row">
+        <main class="clearfix">
+	        <section id="couple" class="heroic-bg blend-overlay row" data-lazy="assets/images/couple.jpg">
 	<div class="columns large-12">
 		<div class="columns large-4 medium-4">
 			<span class="headshot groom">
-				<img src="assets/images/dan.jpg" alt="groom headshot" width="233">
+				<img class="lazy " 
+	 data-src="assets/images/nothing.gif" 
+	 data-lazy="[assets/images/dan.jpg, (default)], 
+	 			[assets/images/dan.jpg@2x, (retina)]" 
+	 height="" width="233" alt="groom headshot" />
+<noscript>
+	<img src="assets/images/dan.jpg@2x.jpg" height="" width="233" alt="groom headshot" />
+</noscript>
 			</span>
 			<h3>Dan</h3>
 			<p class="desc groom">
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et vulputate magna, sed ornare elit. Nunc vitae quam sit amet dolor tincidunt sodales et ut tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam vitae mi semper, vulputate
 				<span class="social groom">
-					<a title="Like us on Facebook" href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook fa-2x"></i></a>
-			        <a title="Follow us on Twitter" href="https://twitter.com/" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
-			        <a title="We're on Pinterest" href="https://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest-p fa-2x"></i></a>
+					
+						
+						
+						<a title="Facebook" href="https://facebook.com/dankoch-again" target="_blank">
+							<i class="fa fa-facebook fa-2x"></i>
+						</a>
+					
+						
+						
+						<a title="Instagram" href="https://instagram.com/wherebethedan" target="_blank">
+							<i class="fa fa-instagram fa-2x"></i>
+						</a>
+					
+						
+						
+						<a title="Github" href="https://github.com/wherebethedan" target="_blank">
+							<i class="fa fa-github fa-2x"></i>
+						</a>
+					
 		    	</span>
 			</p>
 		</div><!-- End .large-4 -->
@@ -57,49 +93,251 @@
 		</div><!-- End .large-4 -->
 		<div class="columns large-4 medium-4">
 			<span class="headshot bride">
-				<img src="assets/images/pili.jpg" alt="bride headshot" width="233">
+				<img class="lazy " 
+	 data-src="assets/images/nothing.gif" 
+	 data-lazy="[assets/images/pili.jpg, (default)], 
+	 			[assets/images/pili.jpg@2x, (retina)]" 
+	 height="" width="233" alt="bride headshot" />
+<noscript>
+	<img src="assets/images/pili.jpg@2x.jpg" height="" width="233" alt="bride headshot" />
+</noscript>
 			</span>
 			<h3>Pili</h3>
 			<p class="desc bride">
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et vulputate magna, sed ornare elit. Nunc vitae quam sit amet dolor tincidunt sodales et ut tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam vitae mi semper, vulputate
 				<span class="social bride">
-					<a title="Like us on Facebook" href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook fa-2x"></i></a>
-			        <a title="Follow us on Twitter" href="https://twitter.com/" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
-			        <a title="We're on Pinterest" href="https://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest-p fa-2x"></i></a>
+					
+						
+						
+						<a title="Facebook" href="https://facebook.com/monicadelpilar" target="_blank"><i class="fa fa-facebook fa-2x"></i></a>
+					
+						
+						
+						<a title="Instagram" href="https://instagram.com/loveforpili" target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
+					
+						
+						
+						<a title="Pinterest" href="https://pinterest.com/loveforpili" target="_blank"><i class="fa fa-pinterest fa-2x"></i></a>
+					
 		    	</span>
 			</p>
 		</div><!-- End .large-4 -->
 	</div><!-- End .large-12 -->
 </section>
+	        <section id="countdown" class="heroic-bg" data-lazy="assets/images/cartagena.jpg">
+	<h2>Countdown to the Party</h2>
+	<div id="default-countdown"></div>
+</section>
+            <section id="couple-gallery">
+	<h2>Gallery</h2>
+	<div class="il-scattered-gallery">
+		
+			
+			
+			<a class="il-photo-01 il-highlight il-focus">
+				<img class="lazy il-photo" 
+	 data-src="assets/images/nothing.gif" 
+	 data-lazy="[assets/images/gallery/group.jpg, (default)], 
+	 			[assets/images/gallery/group.jpg@2x, (retina)]" 
+	 height="" width="" alt="" />
+<noscript>
+	<img src="assets/images/gallery/group.jpg@2x.jpg" height="" width="" alt="" />
+</noscript>
+			</a>
+		
+			
+			
+			<a class="il-photo-02 ">
+				<img class="lazy il-photo" 
+	 data-src="assets/images/nothing.gif" 
+	 data-lazy="[assets/images/gallery/couple_and_parents.jpg, (default)], 
+	 			[assets/images/gallery/couple_and_parents.jpg@2x, (retina)]" 
+	 height="" width="" alt="" />
+<noscript>
+	<img src="assets/images/gallery/couple_and_parents.jpg@2x.jpg" height="" width="" alt="" />
+</noscript>
+			</a>
+		
+			
+			
+			<a class="il-photo-03 ">
+				<img class="lazy il-photo" 
+	 data-src="assets/images/nothing.gif" 
+	 data-lazy="[assets/images/gallery/liz_and_pili.jpg, (default)], 
+	 			[assets/images/gallery/liz_and_pili.jpg@2x, (retina)]" 
+	 height="" width="" alt="" />
+<noscript>
+	<img src="assets/images/gallery/liz_and_pili.jpg@2x.jpg" height="" width="" alt="" />
+</noscript>
+			</a>
+		
+			
+			
+			<a class="il-photo-04 ">
+				<img class="lazy il-photo" 
+	 data-src="assets/images/nothing.gif" 
+	 data-lazy="[assets/images/gallery/dad_speech.jpg, (default)], 
+	 			[assets/images/gallery/dad_speech.jpg@2x, (retina)]" 
+	 height="" width="" alt="" />
+<noscript>
+	<img src="assets/images/gallery/dad_speech.jpg@2x.jpg" height="" width="" alt="" />
+</noscript>
+			</a>
+		
+			
+			
+			<a class="il-photo-05 ">
+				<img class="lazy il-photo" 
+	 data-src="assets/images/nothing.gif" 
+	 data-lazy="[assets/images/gallery/la_familia.jpg, (default)], 
+	 			[assets/images/gallery/la_familia.jpg@2x, (retina)]" 
+	 height="" width="" alt="" />
+<noscript>
+	<img src="assets/images/gallery/la_familia.jpg@2x.jpg" height="" width="" alt="" />
+</noscript>
+			</a>
+		
+			
+			
+			<a class="il-photo-06 ">
+				<img class="lazy il-photo" 
+	 data-src="assets/images/nothing.gif" 
+	 data-lazy="[assets/images/gallery/married_again.jpg, (default)], 
+	 			[assets/images/gallery/married_again.jpg@2x, (retina)]" 
+	 height="" width="" alt="" />
+<noscript>
+	<img src="assets/images/gallery/married_again.jpg@2x.jpg" height="" width="" alt="" />
+</noscript>
+			</a>
+		
+			
+			
+			<a class="il-photo-07 ">
+				<img class="lazy il-photo" 
+	 data-src="assets/images/nothing.gif" 
+	 data-lazy="[assets/images/gallery/program.jpg, (default)], 
+	 			[assets/images/gallery/program.jpg@2x, (retina)]" 
+	 height="" width="" alt="" />
+<noscript>
+	<img src="assets/images/gallery/program.jpg@2x.jpg" height="" width="" alt="" />
+</noscript>
+			</a>
+		
+	</div>
+	<div class="couple-slideshow-wrap">
+		<div id="couple-slideshow">
+			
+				<li class="slideshow-photo" data-lazy="assets/images/gallery/group.jpg"></li>
+			
+				<li class="slideshow-photo" data-lazy="assets/images/gallery/couple_and_parents.jpg"></li>
+			
+				<li class="slideshow-photo" data-lazy="assets/images/gallery/liz_and_pili.jpg"></li>
+			
+				<li class="slideshow-photo" data-lazy="assets/images/gallery/dad_speech.jpg"></li>
+			
+				<li class="slideshow-photo" data-lazy="assets/images/gallery/la_familia.jpg"></li>
+			
+				<li class="slideshow-photo" data-lazy="assets/images/gallery/married_again.jpg"></li>
+			
+				<li class="slideshow-photo" data-lazy="assets/images/gallery/program.jpg"></li>
+			
+		</div>
+		<ul class="couple-thumbs"></ul>
+	</div>
+	<div class="couple-mobile-slider-wrap">
+		<div class="couple-mobile-slider"></div>
+	</div>
+</section>
+            <section id="schedule" class="heroic-bg blend-overlay" data-lazy="assets/images/table_setting.jpg">		
+	<div class="schedule-content-wrap">
+		<h2>Schedule</h2>
+		<div class="row">
+			<div class="columns large-6">
+				<strong>Dan &amp; Pili Celebration</strong>
+				<img class="lazy " 
+	 data-src="assets/images/nothing.gif" 
+	 data-lazy="[assets/images/workhouse.jpg, (default)], 
+	 			[assets/images/workhouse.jpg@2x, (retina)]" 
+	 height="" width="187" alt="workhouse" />
+<noscript>
+	<img src="assets/images/workhouse.jpg@2x.jpg" height="" width="187" alt="workhouse" />
+</noscript>
+				<div class="event-details">
+					<p>September 30<br>
+					7:00pm - 11:00pm<br>
+					LORTON, VA<br>
+					THE WORK HOUSE<br>
+					<a href="">VIEW DIRECTIONS</a></p>
+					<p>Time to party for the third time!</p>
+				</div><!-- End .event-details -->
+			</div><!-- End .columns.large-6 -->
+			<div class="columns large-6">
+				<strong>Grandma Flo Celebration</strong>
+				<img class="lazy " 
+	 data-src="assets/images/nothing.gif" 
+	 data-lazy="[assets/images/greenspring.jpg, (default)], 
+	 			[assets/images/greenspring.jpg@2x, (retina)]" 
+	 height="" width="187" alt="greenspring" />
+<noscript>
+	<img src="assets/images/greenspring.jpg@2x.jpg" height="" width="187" alt="greenspring" />
+</noscript>
+				<div class="event-details">
+					<p>October 1<br>
+					12:00pm - 3:00pm<br>
+					SPRINGFIELD, VA<br>
+					GREENSPRING<br>
+					<a href="">VIEW DIRECTIONS</a></p>
+					<p>Grandma's big day!</p>
+				</div><!-- End .event-details -->
+			</div><!-- End .columns.large-6 -->
+		</div><!-- End .row -->
+	</div><!-- End .schedule-content-wrap -->
+</section>
+	        <section id="rsvp">
+	<div class="rsvp-form-wrap">
+		<h2>RSVP</h2>
+		<p class="rsvp-desc">RSVP with this form or call us at <em>703 493 8033</em>!</p>
+		<form id="rsvp-form" class="clearfix" action="https://www.formingo.co/submit/7f70f6b3-9cf1-4744-af5c-f7da3a64987d" method="POST" data-abide="" novalidate="novalidate">
+			<div class="columns large-12">
+				<label for="attendee-name">Name (required)</label>
+				<input id="attendee-name" name="attendee_name" type="text" placeholder="Name" required="" pattern="[a-zA-Z]+">
+				<small class="error">Please enter your name.</small>
+			</div><!-- End .large-12 -->
+			<div class="columns large-12">
+				<label for="attendee-email">Email Address (required)</label>
+				<input id="attendee-email" name="attendee_email" type="email" placeholder="Email" required="">
+				<small class="error">Please enter a valid email.</small>
+			</div><!-- End .large-12 -->
+			<div class="columns large-4 medium-4 small-4">
+				<label for="guests">Guests</label>
+				<select id="guests" name="guests">
+					<option value="0">0</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+				</select>
+			</div><!-- End .large-4 -->
+			<div class="columns large-8 medium-8 small-8">
+				<label for="attending">I am attending</label>
+				<select id="attending" name="attending">
+					<option value="Yes">Yes</option>
+					<option value="No">No</option>
+				</select>
+			</div><!-- End .large-8 -->
+			<div class="columns large-12">
+				<input id="rsvp-submit" class="button" type="submit" value="Submit" name="rsvp_submit">
+			</div><!-- End .large-12 -->
+		</form>
+	</div><!-- End .rsvp-form-wrap -->
+</section>
+	    </main>
 
         <footer class="site-footer">
-    <div class="wrapper">
-
-        <h2 class="footer-heading">Dan + Pili</h2>
-
-        <div class="footer-col-wrapper">
-            <div class="footer-col footer-col-1">
-                <ul class="contact-list">
-                    <li>Dan + Pili</li>
-                    <li><a href="mailto:dkoch@sagetopia.com">dkoch@sagetopia.com</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col footer-col-2">
-                <ul class="social-media-list">
-                </ul>
-            </div>
-
-            <div class="footer-col footer-col-3">
-                <p>Site description</p>
-            </div>
-        </div>
-
-    </div>
+    <p>&copy;2016 Dan Koch <span style="float:right">Developed by the groom</span></p>
 </footer>
 
-<script type="text/javascript" src="/assets/scripts/main.js" ></script>
-
+<script type="text/javascript" src="assets/scripts/main.js" ></script>
     </body>
-
 </html>

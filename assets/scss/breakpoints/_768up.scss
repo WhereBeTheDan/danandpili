@@ -1,5 +1,35 @@
 /**
- *	Stylesheet: 768up
- *	Author: 	Sagetopia
- *	Project:	Capital Peaks
+ *  Stylesheet: 768up
+ *  Author:     Dan Koch
+ *  Project:    Dan & Pili
  */
+
+
+main {
+    margin-top: 712px;
+}
+
+.home {
+
+	header.default {
+		position: fixed;
+	    height: 712px;
+	}
+}
+
+.il-scattered-gallery a {
+	border: 0;
+	box-shadow: 0 0 20px -7px rgba(0,0,0,0.5);
+
+	&.il-photo-04 {
+		opacity: 1;
+		top: 315px;
+		left: 0;
+	}
+
+	&.il-photo-06 {
+		left: 75px;
+		bottom: 0;
+		transform: rotate(4deg);
+	}
+}

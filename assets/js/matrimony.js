@@ -39,21 +39,8 @@ $(document).ready(function(){
     return false;
   });
 
-  // Create couple gallery popup
-  var imgCounter = 0;
-  var activeSlide = '';
-  $('.il-scattered-gallery a').each(function(){
-    if( imgCounter == 0 ){ activeSlide = 'active-slide'; }else{  activeSlide = ''}
-    var img = $(this).html();
-    var imgThumb = '<li data-slide-number="'+imgCounter+'" href="" class="'+activeSlide+'">'+img+'</li>';
-    var imgSrc = $(this).find('img').attr('src');
-    $('#couple-slideshow').append('<li style="background:url('+imgSrc+') no-repeat center; background-size:cover;">'+img+'</li>');
-    $('.couple-thumbs').append(imgThumb);
-    imgCounter++;
-  });
-
   // Launch the gallery popup
-  $('#gallery-launcher').click(function() {
+  $('.il-scattered-gallery a').click(function() {
     $('.couple-slideshow-wrap').append('<a class="close-btn"><em>X</em>Close</a>');
     $('.blocking').fadeIn(500);
     $('.couple-slideshow-wrap').css('z-index','2001');
@@ -169,7 +156,7 @@ AFTER DOCUMENT LOADS
 --------------------------------------------------------------*/
 $(window).load (function(){
 
-  if( $('body').hasClass('home') ){
+  if ( $('body').hasClass('home') ){
     
     // Begin "create sliders for all the galleries"
 
@@ -182,46 +169,40 @@ $(window).load (function(){
     var coupleSlideshow;
 
     // Bridesmaids
-    $('#bridesmaid-carousel a img').each(function(){
-      bridesmaidsSlider.push($(this).attr('src'));
-    });
-    for ( var i = 0, l = bridesmaidsSlider.length; i < l; i++ ) {
-      $('.bridemaids-mobile-slider').append('<img src="'+bridesmaidsSlider[ i ]+'" alt="" />')
-    }
-    slider = $('.bridemaids-mobile-slider').bxSlider({
-      auto: true,
-      mode: 'horizontal',
-      speed: 1000,
-      pager: false,
-      controls: false,
-      pause: 4000
-    });
-    slider.startAuto();
+    // $('#bridesmaid-carousel a img').each(function(){
+    //   bridesmaidsSlider.push($(this).attr('src'));
+    // });
+    // for ( var i = 0, l = bridesmaidsSlider.length; i < l; i++ ) {
+    //   $('.bridemaids-mobile-slider').append('<img src="'+bridesmaidsSlider[ i ]+'" alt="" />')
+    // }
+    // slider = $('.bridemaids-mobile-slider').bxSlider({
+    //   auto: true,
+    //   mode: 'horizontal',
+    //   speed: 1000,
+    //   pager: false,
+    //   controls: false,
+    //   pause: 4000
+    // });
+    // slider.startAuto();
 
     // Groomsmen
-    $('#groomsmen-carousel a img').each(function(){
-      groomsmenSlider.push($(this).attr('src'));
-    });
-    for ( var i = 0, l = groomsmenSlider.length; i < l; i++ ) {
-      $('.groomsmen-mobile-slider').append('<img src="'+groomsmenSlider[ i ]+'" alt="" />')
-    }
-    sliderTwo = $('.groomsmen-mobile-slider').bxSlider({
-      auto: true,
-      mode: 'horizontal',
-      speed: 1000,
-      pager: false,
-      controls: false,
-      pause: 4100
-    });
-    sliderTwo.startAuto();
+    // $('#groomsmen-carousel a img').each(function(){
+    //   groomsmenSlider.push($(this).attr('src'));
+    // });
+    // for ( var i = 0, l = groomsmenSlider.length; i < l; i++ ) {
+    //   $('.groomsmen-mobile-slider').append('<img src="'+groomsmenSlider[ i ]+'" alt="" />')
+    // }
+    // sliderTwo = $('.groomsmen-mobile-slider').bxSlider({
+    //   auto: true,
+    //   mode: 'horizontal',
+    //   speed: 1000,
+    //   pager: false,
+    //   controls: false,
+    //   pause: 4100
+    // });
+    // sliderTwo.startAuto();
 
     // Couple
-    $('.il-scattered-gallery a img').each(function(){
-      coupleSlider.push($(this).attr('src'));
-    });
-    for ( var i = 0, l = coupleSlider.length; i < l; i++ ) {
-      $('.couple-mobile-slider').append('<img src="'+coupleSlider[ i ]+'" alt="" />')
-    }
     sliderThree = $('.couple-mobile-slider').bxSlider({
       auto: true,
       mode: 'horizontal',

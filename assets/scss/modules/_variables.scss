@@ -1,0 +1,30 @@
+// Our variables
+$base-font-family: 	"Helvetica Neue", Helvetica, Arial, sans-serif;
+$base-font-size:   	16px;
+$base-font-weight: 	400;
+$small-font-size:  	$base-font-size * 0.875;
+$base-line-height: 	1.5;
+
+$spacing-unit:     	30px;
+
+$black:				#000000;
+$white:				#ffffff;
+
+$lavender:			#788aa3;
+
+$text-color:       	#222222;
+$background-color: 	#fdfdfd;
+$brand-color:      	#2a7ae2;
+
+$grey-color:       	#828282;
+$grey-color-light: 	lighten($grey-color, 40%);
+$grey-color-dark:  	darken($grey-color, 25%);
+
+
+
+// Width of the content area
+$content-width:    	1200px;
+
+$on-palm:          	481px;
+$on-tablet:        	768px;
+$on-desktop:	   	1030px;

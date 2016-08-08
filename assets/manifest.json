@@ -6,9 +6,11 @@
   "dependencies": {
     "main.js": {
       "files": [
+        "js/plugins.js",
         "js/matrimony.js",
         "js/scripts.js"
       ],
+      "vendor": ["assets/js/vendor/appear.js"],
       "main": true
     },
     "main.css": {
@@ -16,6 +18,9 @@
         "scss/main.scss"
       ],
       "main": true
+    },
+    "modernizr.js": {
+      "bower": ["modernizr"]
     },
     "fonts": {
       "bower": ["font-awesome"]

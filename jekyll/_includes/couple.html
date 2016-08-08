@@ -1,16 +1,20 @@
-<section id="couple" class="row">
+<section id="couple" class="heroic-bg blend-overlay row" data-lazy="assets/images/couple.jpg">
 	<div class="columns large-12">
 		<div class="columns large-4 medium-4">
 			<span class="headshot groom">
-				<img src="assets/images/dan.jpg" alt="groom headshot" width="233">
+				{% include lazy-image.html src="assets/images/dan.jpg" alt="groom headshot" width="233" %}
 			</span>
 			<h3>Dan</h3>
 			<p class="desc groom">
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et vulputate magna, sed ornare elit. Nunc vitae quam sit amet dolor tincidunt sodales et ut tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam vitae mi semper, vulputate
 				<span class="social groom">
-					<a title="Like us on Facebook" href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook fa-2x"></i></a>
-			        <a title="Follow us on Twitter" href="https://twitter.com/" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
-			        <a title="We're on Pinterest" href="https://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest-p fa-2x"></i></a>
+					{% for network in site.data.social.groom %}
+						{% assign net = network[0] %}
+						{% assign tag = network[1] %}
+						<a title="{{ net | capitalize }}" href="https://{{ net }}.com/{{ tag }}" target="_blank">
+							<i class="fa fa-{{ net }} fa-2x"></i>
+						</a>
+					{% endfor %}
 		    	</span>
 			</p>
 		</div><!-- End .large-4 -->
@@ -19,15 +23,17 @@
 		</div><!-- End .large-4 -->
 		<div class="columns large-4 medium-4">
 			<span class="headshot bride">
-				<img src="assets/images/pili.jpg" alt="bride headshot" width="233">
+				{% include lazy-image.html src="assets/images/pili.jpg" alt="bride headshot" width="233" %}
 			</span>
 			<h3>Pili</h3>
 			<p class="desc bride">
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et vulputate magna, sed ornare elit. Nunc vitae quam sit amet dolor tincidunt sodales et ut tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam vitae mi semper, vulputate
 				<span class="social bride">
-					<a title="Like us on Facebook" href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook fa-2x"></i></a>
-			        <a title="Follow us on Twitter" href="https://twitter.com/" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
-			        <a title="We're on Pinterest" href="https://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest-p fa-2x"></i></a>
+					{% for network in site.data.social.bride %}
+						{% assign net = network[0] %}
+						{% assign tag = network[1] %}
+						<a title="{{ net | capitalize }}" href="https://{{ net }}.com/{{ tag }}" target="_blank"><i class="fa fa-{{ net }} fa-2x"></i></a>
+					{% endfor %}
 		    	</span>
 			</p>
 		</div><!-- End .large-4 -->

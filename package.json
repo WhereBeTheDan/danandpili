@@ -44,5 +44,8 @@
     "minimist": "^1.2.0",
     "run-sequence": "^1.2.2",
     "wiredep": "^4.0.0"
+  },
+  "dependencies": {
+    "appear": "^1.0.1"
   }
 }
