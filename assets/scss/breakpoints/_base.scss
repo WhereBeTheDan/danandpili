@@ -137,13 +137,109 @@ header.fixed {
     background-repeat: no-repeat;
 }
 
+.couple-mobile-slider-wrap .bx-viewport {
+    height: auto !important;
+}
+
 //------- Schedule ------------------//
 
 #schedule {
 
     .schedule-content-wrap {
         box-shadow: 0 0 20px -5px transparentize( $grey-color, 0.7 );
+        height: auto;
         padding: 5rem 0;
+    }
+
+    .item {
+        text-align: center;
+        margin-top: 4.8125rem;
+
+        > strong {
+            display: block;
+            font-family: "Prata", serif;
+            font-size: 1.125rem;
+            font-weight: normal;
+            color: #282828;
+            margin-bottom: 1.25rem;
+        }
+
+        > img {
+            border-radius: 50%;
+            border: 6px solid #f3f3f3;
+        }
+
+        p {
+            font-family: "Lato", sans-serif;
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: #282828;
+            letter-spacing: 1px;
+            margin-top: 1.5625rem;
+            margin-bottom: 0;
+            line-height: 18px;
+
+            + p {
+                margin-top: 1.1875rem;
+            }
+        }
+
+        a {
+            font-weight: 700;
+            color: #282828;
+            text-decoration: underline;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+
+//------- Contact ------------------//
+
+#registries {
+    padding: 5rem 0;
+    background-color: $white;
+    position: relative;
+
+    h2 {
+        color: $black;
+    }
+
+    .registries-desc {
+        text-align: center;
+        color: #818181;
+        width: 326px;
+        margin: 1.3125rem auto 3.4375rem;
+        font-family: Lato,sans-serif;
+        font-size: .875rem;
+        line-height: 19px;
+        letter-spacing: 1px;
+    }
+
+    .columns {
+        text-align: center;
+    }
+
+    .registry {
+        display: block;
+        position: relative;
+
+        img {
+            max-height: 75px;
+            width: auto;
+            position: relative;
+            top: -30px;
+            opacity: 0;
+            transition: all 0.3s;
+
+            &.on-screen {
+                top: 0;
+                opacity: 1;
+            }
+        }
     }
 }
 
@@ -154,10 +250,6 @@ header.fixed {
     height: auto;
     padding: 5rem 0;
 }
-
-//------- Contact ------------------//
-
-
 
 
 //------- No JS ------------------//

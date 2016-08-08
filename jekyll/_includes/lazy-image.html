@@ -1,9 +1,9 @@
 {% assign srcparts = include.src | split: '.' %}
 <img class="lazy {{ include.class }}" 
-	 data-src="assets/images/nothing.gif" 
-	 data-lazy="[{{ srcparts[0] }}.{{ srcparts[1] }}, (default)], 
-	 			[{{ srcparts[0] }}@2x.{{ srcparts[1] }}, (retina)]" 
+	 data-src="{{ 'assets/images/nothing.gif' | prepend: site.cdnurl }}" 
+	 data-lazy="[{{ srcparts[0] | prepend: site.cdnurl }}.{{ srcparts[1] }}, (default)], 
+	 			[{{ srcparts[0] | prepend: site.cdnurl }}@2x.{{ srcparts[1] }}, (retina)]" 
 	 height="{{ include.height }}" width="{{ include.width }}" alt="{{ include.alt }}" />
 <noscript>
-	<img src="{{ srcparts[0] }}@2x.jpg" height="{{ include.height }}" width="{{ include.width }}" alt="{{ include.alt }}" />
+	<img src="{{ srcparts[0] | prepend: site.cdnurl }}@2x.jpg" height="{{ include.height }}" width="{{ include.width }}" alt="{{ include.alt }}" />
 </noscript>

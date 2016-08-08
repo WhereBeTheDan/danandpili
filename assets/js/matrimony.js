@@ -79,7 +79,7 @@ $(document).ready(function(){
         var currentSection = $(this);
         var currentId = $(this).attr('id');
         // For each section that comes into view add active class to corresponding side nav link
-        if(currentSection.isOnScreen()){
+        if (currentSection.isOnScreen()){
           $('a[href="#'+currentId+'"]').closest('li').siblings().find('a').removeClass('active');
           $('a[href="#'+currentId+'"]').addClass('active');
         }
