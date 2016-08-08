@@ -6,7 +6,7 @@
 			{% for registry in site.data.registries %}
 				{% assign src = registry.image | prepend: 'assets/images/registries/' %}
 				<div class="columns medium-6 large-3">
-					<a class="registry" href="{{ registry.url }}" target="_blank">
+					<a class="registry registry-{{ forloop.index }}" href="{{ registry.url }}" target="_blank">
 						{% include lazy-image.html src=src alt=registry.name width=300 %}
 					</a>
 				</div>

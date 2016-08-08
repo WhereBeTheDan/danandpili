@@ -226,18 +226,24 @@ header.fixed {
         display: block;
         position: relative;
         margin-top: 1.5em;
+        top: -30px;
+        opacity: 0;
+        transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 
         img {
             max-height: 75px;
             width: auto;
             position: relative;
-            top: -30px;
-            opacity: 0;
-            transition: all 0.3s;
+        }
 
-            &.on-screen {
-                top: 0;
-                opacity: 1;
+        &.on-screen {
+            top: 0;
+            opacity: 1;
+        }
+
+        @for $i from 1 through 4 {
+            &.registry-#{$i} {
+                transition-delay: 0.5s + (0.1s * $i);
             }
         }
     }
