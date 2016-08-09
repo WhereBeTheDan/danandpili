@@ -16,7 +16,9 @@ main {
 	header.default {
 		position: fixed;
 	    height: 712px;
-   		padding-top: 9.375rem;
+	    @media (max-width: 1024px) {
+   			padding-top: 9.375rem;
+   		}
 	}
 }
 
