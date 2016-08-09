@@ -12,7 +12,7 @@
 	<div class="couple-slideshow-wrap">
 		<div id="couple-slideshow">
 			{% for image in site.data.gallery %}
-				<li class="slideshow-photo" data-lazy="{{ image | prepend: 'assets/images/gallery/' }}"></li>
+				<li class="slideshow-photo" data-lazy="{{ image | prepend: 'assets/images/gallery/' | prepend: site.cdnurl }}"></li>
 			{% endfor %}
 		</div>
 		<ul class="couple-thumbs"></ul>
