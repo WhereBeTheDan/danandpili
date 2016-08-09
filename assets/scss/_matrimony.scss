@@ -602,13 +602,12 @@ COUPLE SECTION
   letter-spacing: 2px;
   margin: 0;
   padding: 0;
-  text-align: left;
+  text-align: center;
 }
 #couple .desc {
   font-size: 0.8125rem;
   font-family: "Raleway", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   font-weight: 400;
-  max-width: 260px;
   margin-top: 1.5rem;
   line-height: 22px;
   letter-spacing: 1px;
@@ -2234,10 +2233,6 @@ SINGLE POST
 
   .blocking {
     display: none !important;
-  }
-
-  header {
-    padding-top: 9.375rem;
   }
 
   #bridesmaid-gallery,

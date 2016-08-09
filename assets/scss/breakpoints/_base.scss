@@ -4,6 +4,44 @@
  *  Project:    Dan & Pili
  */
 
+html {
+    &:before {
+        content: '';
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: url(../images/loader.svg) center calc(13.125em + 60px) / auto 2em no-repeat $white;
+        opacity: 1;
+        z-index: 2002;
+        transition: all 0.3s;
+
+        @media (min-width: 320px) {
+            background-position: center calc(12.5em + 60px);
+            background-size: auto 2.3em;
+        }
+
+        @media (min-width: 481px) {
+            background-size: auto 2.7em;
+        }
+
+        @media (min-width: 640px) {
+            background-position: center calc(18.8125em + 60px);
+            background-size: auto 4em;
+        }
+    }
+
+    &.loaded:before {
+        opacity: 0;
+        z-index: -1;
+    }
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
 a {
     color: $lavender;
     transition: color 0.2s ease-in-out;
@@ -68,7 +106,7 @@ main {
 //------- Header ------------------//
 
 header.default {
-    background-image: url(../images/danandpili_heroic.jpg);
+    background-image: url(http://d3dxkfifxx3mfa.cloudfront.net/assets/images/danandpili_heroic.jpg);
     background-position: center bottom;
     height: auto;
     @media (max-width: 767px) {
@@ -83,19 +121,19 @@ header.default {
 }
 
 header.default nav ul li a:before {
-    background-image: url(../images/active-page.png);
+    background-image: url(http://d3dxkfifxx3mfa.cloudfront.net/assets/images/active-page.png);
 }
 
 header.fixed {
     box-shadow: 0 1px 10px -5px transparentize( $black, 0.8 );
 
     nav ul li a:before {
-        background-image: url(../images/active-page_fixed.png);
+        background-image: url(http://d3dxkfifxx3mfa.cloudfront.net/assets/images/active-page_fixed.png);
     }
 }
 
 .mobile-nav-menu .mobile-menu-container ul li a:before {
-    background-image: url(../images/active-page_mobile.png);
+    background-image: url(http://d3dxkfifxx3mfa.cloudfront.net/assets/images/active-page_mobile.png);
 }
 
 //------- Couple ------------------//
@@ -104,8 +142,20 @@ header.fixed {
     background-color: $white;
     margin-top: 0;
 
+    h3, .desc {
+        text-align: center;
+    }
+
     .columns {
         z-index: 2;
+    }
+
+    .ampersand {
+        padding: 0;
+    }
+
+    .giant-ampersand {
+        font-size: 8em;
     }
 }
 
@@ -228,7 +278,7 @@ header.fixed {
         margin-top: 1.5em;
         top: -30px;
         opacity: 0;
-        transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+        transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
         img {
             max-height: 75px;

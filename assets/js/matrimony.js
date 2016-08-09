@@ -160,13 +160,14 @@ $(window).load (function(){
     
     // Begin "create sliders for all the galleries"
 
-    var bridesmaidsSlider = [];
-    var groomsmenSlider = [];
-    var coupleSlider = [];
-    var slider;
-    var sliderTwo;
-    var sliderThree;
+    // var bridesmaidsSlider = [];
+    // var groomsmenSlider = [];
+    // var coupleSlider = [];
+    // var slider;
+    // var sliderTwo;
+    var mobileSlideshow;
     var coupleSlideshow;
+    var coupleThumbnails;
 
     // Bridesmaids
     // $('#bridesmaid-carousel a img').each(function(){
@@ -203,15 +204,18 @@ $(window).load (function(){
     // sliderTwo.startAuto();
 
     // Couple
-    sliderThree = $('.couple-mobile-slider').bxSlider({
+    mobileSlideshow = $('.couple-mobile-slider').bxSlider({
       auto: true,
       mode: 'horizontal',
       speed: 1000,
       pager: false,
       controls: false,
-      pause: 4200
+      pause: 4200,
+      onSlideBefore: function(slideElement, oldIndex, newIndex) {
+        $(slideElement).find('lazy').lazyInterchange();
+      }
     });
-    sliderThree.startAuto();
+    mobileSlideshow.startAuto();
 
     // End "create sliders for all the galleries"
 
@@ -219,16 +223,34 @@ $(window).load (function(){
       mode: 'fade',
       speed: 1000,
       auto: false,
-      controls: false,
-      pager: false
+      pager: false,
+      onSlidePrev: function(slideElement, oldIndex, newIndex) {
+        $('.couple-thumbs li').removeClass('active-slide');
+        $('.couple-thumbs li').filter( function() { 
+          return $(this).data('slide-number') == newIndex; 
+        }).addClass('active-slide');
+        if (!(newIndex % 5)) {
+          coupleThumbnails.goToPrevSlide();
+        }
+      },
+      onSlideNext: function(slideElement, oldIndex, newIndex) {
+        $('.couple-thumbs li').removeClass('active-slide');
+        $('.couple-thumbs li').filter( function() { 
+          return $(this).data('slide-number') == newIndex; 
+        }).addClass('active-slide');
+        if (!(newIndex % 5)) {
+          coupleThumbnails.goToNextSlide();
+        }
+      }
     });
 
-    $('.couple-thumbs').bxSlider({
+    coupleThumbnails = $('.couple-thumbs').bxSlider({
       minSlides: 5,
       maxSlides: 5,
       slideWidth: 178,
       slideMargin: 0,
       speed: 750,
+      controls: false,
       pager: false,
       prevText: 'Previous'
     });

@@ -3,7 +3,9 @@
  *  Author:     Dan Koch
  *  Project:    Dan & Pili
  */
-
+html:before {
+    background-position: center 28.1875em;
+}
 
 main {
     margin-top: 712px;
@@ -14,7 +16,27 @@ main {
 	header.default {
 		position: fixed;
 	    height: 712px;
+   		padding-top: 9.375rem;
 	}
+}
+
+#couple {
+
+	.columns {
+		h3, .desc {
+			text-align: center;
+		}
+
+		.headshot {
+			min-width: 230px;
+		    left: 50%;
+		    transform: translateX(-50%);
+		}
+	}
+
+	.giant-ampersand {
+        font-size: 10em;
+    }
 }
 
 .il-scattered-gallery a {
@@ -31,6 +53,80 @@ main {
 		left: 75px;
 		bottom: 0;
 		transform: rotate(4deg);
+	}
+}
+
+.couple-slideshow-wrap .bx-wrapper:first-child {
+	position: relative;
+
+	.bx-controls {
+	  	position: absolute;
+	  	bottom: 0;
+	  	left: -1px;
+	  	width: 100%;
+	  	height: 40px;
+	  	z-index: 999;
+	}
+
+	.bx-prev,
+	.bx-next {
+	  	display: block;
+	  	width: 123px;
+	  	height: 40px;
+	  	font-size: 0.75rem;
+	  	font-weight: 400;
+	  	text-transform: uppercase;
+	  	color: #fff;
+	  	background: #788aa3;
+	  	background: rgba(120, 138, 163, 0.5);
+	  	padding: 12px 15px;
+	  	position: absolute;
+	  	bottom: 0;
+	  	transition: background 0.3s ease-in-out;
+
+	  	&:hover {
+	  		background: #788aa3;
+	  	}
+
+	  	&:after {
+	  		font-family: FontAwesome;
+		  	display: block;
+		  	width: 17px;
+		  	height: 14px;
+		  	position: absolute;
+		  	top: 50%;
+		  	margin-top: -7px;
+	  	}
+	}
+
+	.bx-prev {
+	  	right: 126px;
+	  	text-indent: 17px;
+
+	  	&:after {
+	  		content: "\f177";
+		  	left: 15px;
+		  	transition: left 0.3s ease-in-out;
+		}
+
+		&:hover:after {
+			left: 10px;
+		}
+	}
+
+	.bx-next {
+	  	right: 0;
+	  	text-indent: -19px;
+
+	  	&:after {
+	  		content: "\f178";
+		  	right: 23px;
+		  	transition: right 0.3s ease-in-out;
+		}
+
+		&:hover:after {
+	  		right: 17px;
+		}
 	}
 }
 
