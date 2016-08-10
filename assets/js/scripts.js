@@ -20,19 +20,9 @@ $(window).load(function() {
 
 	$('html').addClass('loading');
 	setTimeout(function() {
-		if (window.performance && performance.timing) {
-			window.performance = window.performance || window.mozPerformance || window.msPerformance || window.webkitPerformance || {};
-			var timing = performance.timing || {};
-			var parseTime = Math.max(1000, Math.max(0, 2500 - (timing.loadEventEnd - timing.responseEnd)));
-			setTimeout(function() {
-				$('html').addClass('loaded');
-			}, parseTime);
-		} else {
-			setTimeout(function() {
-				$('html').addClass('loaded');
-			}, 2000);
-		}
-		// $('html').removeClass('loading');
+		setTimeout(function() {
+			$('html').addClass('loaded').delay(1000).queue(function() { $('html').removeClass('loading'); });
+		}, 1000);
 	}, 0);
 
 	appear((function() {
