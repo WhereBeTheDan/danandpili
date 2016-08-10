@@ -57,27 +57,29 @@ $(window).load(function() {
       	};
     }()));
 
-    appear((function() {
-	    'use strict';
-	    var nodes = [];
+	if (updateViewportDimensions().width > 768) {
+	    appear((function() {
+		    'use strict';
+		    var nodes = [];
 
-	    return {
-	        init: function init() {
-		        var els = document.querySelectorAll('.slideshow-photo');
-		        var elsl = els.length;
-		        for (var i = 0; i < elsl; i += 1) {
-		            nodes.push(els[i]);
-		        }
-	        },
-	        elements: nodes,
-	        appear: function doReveal(el) {
-		        var bg = el.getAttribute('data-lazy');
-		        el.style.backgroundImage = 'url(' + bg + ')';
-		        el.removeAttribute('data-lazy');
-	        },
-	        bounds: 400
-	    };
-    }()));
+		    return {
+		        init: function init() {
+			        var els = document.querySelectorAll('.slideshow-photo');
+			        var elsl = els.length;
+			        for (var i = 0; i < elsl; i += 1) {
+			            nodes.push(els[i]);
+			        }
+		        },
+		        elements: nodes,
+		        appear: function doReveal(el) {
+			        var bg = el.getAttribute('data-lazy');
+			        el.style.backgroundImage = 'url(' + bg + ')';
+			        el.removeAttribute('data-lazy');
+		        },
+		        bounds: 400
+		    };
+	    }()));
+	}
 
     appear((function() {
 	    'use strict';

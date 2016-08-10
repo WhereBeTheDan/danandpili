@@ -25,3 +25,7 @@
 @include media-query( $on-desktop ) {
 	@import "breakpoints/1030up";
 }
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+	@import "breakpoints/retina";
+}
