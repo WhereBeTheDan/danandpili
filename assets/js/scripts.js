@@ -57,17 +57,6 @@ $(window).load(function() {
       	};
     }()));
 
-    appear({
-    	init: function init() {},
-    	elements: function elements() {
-    		return document.getElementById('couple-gallery');
-    	},
-    	appear: function doReveal(el) {
-      		$(el).find('.couple-mobile-slider .lazy').lazyInterchange().animate({opacity: 1},500);
-    	},
-    	bounds: 400
-    });
-
     appear((function() {
 	    'use strict';
 	    var nodes = [];

@@ -212,7 +212,7 @@ $(window).load (function(){
       controls: false,
       pause: 4200,
       onSlideBefore: function(slideElement, oldIndex, newIndex) {
-        slideElement.find('.lazy').lazyInterchange();
+        slideElement.find('.lazy').lazyInterchange().animate({opacity: 1},500);
       }
     });
     mobileSlideshow.startAuto();
@@ -263,7 +263,7 @@ $(window).load (function(){
     });
 
     $('.bx-clone').each(function(index, el) {
-      $(el).find('.lazy').lazyInterchange();
+      $(el).find('.lazy').lazyInterchange().animate({opacity: 1},500);
     });
 
   }// end if body.home
