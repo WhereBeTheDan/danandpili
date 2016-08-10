@@ -12,13 +12,13 @@ html {
         top: 0;
         right: 0;
         bottom: 0;
-        background: url(../images/loader.svg) center calc(13.125em + 60px) / auto 2em no-repeat $white;
+        background: url(../images/loader.svg) center calc(13.125em + 160px) / auto 2em no-repeat $white;
         opacity: 1;
         z-index: 2002;
-        transition: all 0.3s;
+        transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
 
         @media (min-width: 321px) {
-            background-position: center calc(12.5em + 60px);
+            background-position: center calc(12.5em + 160px);
             background-size: auto 2.3em;
         }
 
@@ -27,8 +27,20 @@ html {
         }
 
         @media (min-width: 640px) {
-            background-position: center calc(18.8125em + 60px);
+            background-position: center calc(18.8125em + 260px);
             background-size: auto 4em;
+        }
+    }
+
+    &.loading:before {
+        background-position: center calc(13.125em + 60px);
+
+        @media (min-width: 321px) {
+            background-position: center calc(12.5em + 60px);
+        }
+
+        @media (min-width: 640px) {
+            background-position: center calc(18.8125em + 60px);
         }
     }
 

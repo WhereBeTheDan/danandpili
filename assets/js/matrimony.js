@@ -212,7 +212,7 @@ $(window).load (function(){
       controls: false,
       pause: 4200,
       onSlideBefore: function(slideElement, oldIndex, newIndex) {
-        $(slideElement).find('lazy').lazyInterchange();
+        slideElement.find('.lazy').lazyInterchange();
       }
     });
     mobileSlideshow.startAuto();

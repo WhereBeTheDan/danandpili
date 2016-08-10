@@ -18,19 +18,21 @@ function updateViewportDimensions() {
 
 $(window).load(function() {
 
+	$('html').addClass('loading');
 	setTimeout(function() {
 		if (window.performance && performance.timing) {
 			window.performance = window.performance || window.mozPerformance || window.msPerformance || window.webkitPerformance || {};
 			var timing = performance.timing || {};
-			var parseTime = timing.loadEventEnd - timing.responseEnd;
+			var parseTime = Math.max(1000, Math.max(0, 2500 - (timing.loadEventEnd - timing.responseEnd)));
 			setTimeout(function() {
 				$('html').addClass('loaded');
-			}, 2000 - parseTime);
+			}, parseTime);
 		} else {
 			setTimeout(function() {
 				$('html').addClass('loaded');
 			}, 2000);
 		}
+		// $('html').removeClass('loading');
 	}, 0);
 
 	appear((function() {
@@ -111,6 +113,7 @@ $(document).ready(function() {
 
 	if (version) {
 		$('.browser-warning').show();
+		$('body').css('overflow', 'hidden');
 	}
 
   	var date = new Date(2016, 8, 30);
