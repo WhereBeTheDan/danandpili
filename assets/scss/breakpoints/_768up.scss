@@ -3,13 +3,6 @@
  *  Author:     Dan Koch
  *  Project:    Dan & Pili
  */
-html {
-	background-position: center calc(28.1875em + 200px);
-	
-	&.loading:before {
-	    background-position: center 28.1875em;
-	}
-}
 
 main {
     margin-top: 712px;

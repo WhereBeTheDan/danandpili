@@ -19,6 +19,11 @@
       ],
       "main": true
     },
+    "loader.css": {
+      "files": [
+        "scss/loader.scss"
+      ]
+    },
     "modernizr.js": {
       "bower": ["modernizr"]
     },
