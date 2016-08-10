@@ -262,6 +262,10 @@ $(window).load (function(){
       $(this).addClass('active-slide');
     });
 
+    $('.bx-clone').each(function(index, el) {
+      $(el).find('.lazy').lazyInterchange();
+    });
+
   }// end if body.home
 
 });
