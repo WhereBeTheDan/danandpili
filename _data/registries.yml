@@ -1,12 +1,18 @@
-- name: Traveler's Joy
-  image: travelers_joy.png
-  url: http://www.travelersjoy.com/danandpili
+# - name: Traveler's Joy
+#   image: travelers_joy.png
+#   url: http://www.travelersjoy.com/danandpili
+- name: Pier1
+  image: pier1.png
+  url: http://www.myregistry.com/public/danandpili
 - name: Amazon 
   image: amazon.png
-  url: https://www.amazon.com/wedding/dan-koch-pili-rojas-perez-lorton-september-2016/registry/37Q8XUE6YF4XU
+  url: http://www.myregistry.com/public/danandpili
+  # url: https://www.amazon.com/wedding/dan-koch-pili-rojas-perez-lorton-september-2016/registry/37Q8XUE6YF4XU
 - name: Williams Sonoma 
   image: williams_sonoma.png
-  url: https://secure.williams-sonoma.com/registry/d6gr58x67g/registry-list.html
+  url: http://www.myregistry.com/public/danandpili
+  # url: https://secure.williams-sonoma.com/registry/d6gr58x67g/registry-list.html
 - name: Bed Bath & Beyond
   image: bed_bath_beyond.png
-  url: https://www.bedbathandbeyond.com:443/store/giftregistry/view_registry_guest.jsp?registryId=543687638&eventType=Wedding&pwsurl=
+  url: http://www.myregistry.com/public/danandpili
+  # url: https://www.bedbathandbeyond.com:443/store/giftregistry/view_registry_guest.jsp?registryId=543687638&eventType=Wedding&pwsurl=
