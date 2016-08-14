@@ -5,5 +5,5 @@
 	 			[{{ srcparts[0] | prepend: site.cdnurl }}@2x.{{ srcparts[1] }}, (retina)]" 
 	 height="{{ include.height }}" width="{{ include.width }}" alt="{{ include.alt }}" />
 <noscript>
-	<img src="{{ srcparts[0] | prepend: site.cdnurl }}@2x.jpg" height="{{ include.height }}" width="{{ include.width }}" alt="{{ include.alt }}" />
+	<img src="{{ srcparts[0] | prepend: site.cdnurl }}@2x.{{ srcparts[1] }}" height="{{ include.height }}" width="{{ include.width }}" alt="{{ include.alt }}" />
 </noscript>
