@@ -1,7 +1,7 @@
 <section id="registries">
 	<div class="registries-wrap">
 		<h2>Registries</h2>
-		<p class="registries-desc" style="max-width: 500px; margin: 0 auto;">The gift of your presence and a strong effort on the dance floor is all that we ask of you. If you do wish to help us Pinterest out our apartment, please check out our registries!</p>
+		<p class="registries-desc" style="max-width: 500px;">The gift of your presence and a strong effort on the dance floor is all that we ask of you. If you do wish to help us Pinterest out our apartment, please check out our registries!</p>
 		<div class="registries row">
 			{% for registry in site.data.registries %}
 				{% assign src = registry.image | prepend: 'assets/images/registries/' %}
