@@ -14,8 +14,8 @@
   # url: https://secure.williams-sonoma.com/registry/d6gr58x67g/registry-list.html
 - name: Bed Bath & Beyond
   image: bed_bath_beyond.png
-  url: http://www.myregistry.com/public/danandpili
-  # url: https://www.bedbathandbeyond.com:443/store/giftregistry/view_registry_guest.jsp?registryId=543687638&eventType=Wedding&pwsurl=
-#- name: Wayfair
-#  image: wayfair.jpg
-#  url: http://www.wayfair.com/registry/wedding/danandpili
+  #url: http://www.myregistry.com/public/danandpili
+  url: https://www.bedbathandbeyond.com:443/store/giftregistry/view_registry_guest.jsp?registryId=543687638&eventType=Wedding&pwsurl=
+- name: Wayfair
+  image: wayfair.jpg
+  url: http://www.wayfair.com/registry/wedding/danandpili
