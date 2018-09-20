@@ -5,8 +5,8 @@ title: Dan & Pili
 email: dkoch@sagetopia.com
 description: Site description
 baseurl: ''
-url: "http://www.danandpili.com" # the base hostname & protocol for your site
-cdnurl: http://d3dxkfifxx3mfa.cloudfront.net/
+url: "https://wherebethedan.github.io/danandpili/" # the base hostname & protocol for your site
+cdnurl: https://d3dxkfifxx3mfa.cloudfront.net/
 
 # Build settings
 markdown: kramdown
